@@ -33,107 +33,28 @@ java -cp build/classes/java/main ui.GUI
 ```
 Expected output:
 ```
-Starting Menu:
-
-![Alt text](image.png)
-Welcome to Mancala Game!
-Enter Player 1's name: 
-Ashar Moin
-Enter Player 2's name: 
-Bill Gates 
-Mancala Game Status
+Prompt To Select Game Mode -> MUST SELECT OPTION, CLOSING WILL END APPLICATION
 --------------------
-Player One: Ashar Moin
-Player Two: Bill Gates
 
-Current Turn: Ashar Moin
+Prompt To Login Or Register -> Press X To Play Without A User Profile
 
-Board Layout:
 --------------------
-Pit 12: 4 | Pit 11: 4 | Pit 10: 4 | Pit 09: 4 | Pit 08: 4 | Pit 07: 4 | 
-Player Two Store: 0                                Player One Store: 0
-Pit 01: 4 | Pit 02: 4 | Pit 03: 4 | Pit 04: 4 | Pit 05: 4 | Pit 06: 4 | 
 
-Player 1 Move:
+Play Game As Normal! Press Pits To Make Move, It's Simple!
 
-Player Ashar Moin's turn.
-Enter your move (pit number within your boundary): 1
-
-Mancala Game Status
 --------------------
-Player One: Ashar Moin
-Player Two: Bill Gates
 
-Current Turn: Bill Gates
+Save Game Button -> Save The Game At Any Point, Enter A Filename And Save
 
-Board Layout:
 --------------------
-Pit 12: 4 | Pit 11: 4 | Pit 10: 4 | Pit 09: 4 | Pit 08: 4 | Pit 07: 4 | 
-Player Two Store: 0                                Player One Store: 0
-Pit 01: 0 | Pit 02: 5 | Pit 03: 5 | Pit 04: 5 | Pit 05: 5 | Pit 06: 4 | 
 
-Player 2 Move:
+Exit Game Button -> Exit The Current Game, Bringing You To A Fresh Menu And Board
 
-Player Bill Gates's turn.
-Enter your move (pit number within your boundary): 12
-
-Mancala Game Status
 --------------------
-Player One: Ashar Moin
-Player Two: Bill Gates
 
-Current Turn: Ashar Moin
+Choose File Button -> Select A Game File To Load And Play. If A User File Is Selected Will Continue Current Game
 
-Board Layout:
 --------------------
-Pit 12: 0 | Pit 11: 4 | Pit 10: 4 | Pit 09: 4 | Pit 08: 4 | Pit 07: 4 |
-Player Two Store: 1                                Player One Store: 0
-Pit 01: 1 | Pit 02: 6 | Pit 03: 6 | Pit 04: 5 | Pit 05: 5 | Pit 06: 4 |
-
-Game End Message:
-
-Player Ashar Moin's turn.
-Enter your move (pit number within your boundary): 6
-
-Mancala Game Status
---------------------
-Player One: Ashar Moin
-Player Two: Bill Gates
-
-Current Turn: Bill Gates
-
-Board Layout:
---------------------
-Pit 12: 1 | Pit 11: 6 | Pit 10: 7 | Pit 09: 10 | Pit 08: 14 | Pit 07: 1 |
-Player Two Store: 3                                Player One Store: 6
-Pit 01: 0 | Pit 02: 0 | Pit 03: 0 | Pit 04: 0 | Pit 05: 0 | Pit 06: 0 |
-
-Congratulations Ashar Moin! You Win!
-
-Invalid Input: 
-
-Player Ashar Moin's turn.
-Enter your move (pit number within your boundary): 9
-
----------------
-Invalid Move.
----------------
-
-Mancala Game Status
---------------------
-Player One: Ashar Moin
-Player Two: Bill Gates
-
-Current Turn: Ashar Moin
-
-Board Layout:
---------------------
-Pit 12: 4 | Pit 11: 4 | Pit 10: 4 | Pit 09: 4 | Pit 08: 4 | Pit 07: 4 |
-Player Two Store: 0                                Player One Store: 0
-Pit 01: 4 | Pit 02: 4 | Pit 03: 4 | Pit 04: 4 | Pit 05: 4 | Pit 06: 4 |
-
-Player Ashar Moin's turn.
-Enter your move (pit number within your boundary):
 
 ```
 ## Limitations
@@ -155,7 +76,7 @@ The Ai is able to create the code in a much less robust manner, allowing for sim
 
 ## Acknowledgments
 
-* [A2Starter.zip](https://moodle.socs.uoguelph.ca/pluginfile.php/67801/mod_assign/intro/assignmentTwo.pdf)
+* [assignmentThree.pdf](https://moodle.socs.uoguelph.ca/pluginfile.php/67802/mod_assign/introattachment/0/assignmentThree.pdf?forcedownload=1)
 * [Moodle Javadocs](https://moodle.socs.uoguelph.ca/pluginfile.php/67801/mod_assign/intro/javadocs.zip)
 * [GPT-4 For AI Generated Version](https://chat.openai.com/)
 
