@@ -66,11 +66,6 @@ No limitations or features excluded from program.
 Ashar Moin
 amoin@uoguelph.ca
 
-## Development History
-
-Differences between AI and my code:
-The Ai is able to create the code in a much less robust manner, allowing for simple code, however, my code is easier to maintain as things are spread between multiple classes. The Ai took more of a procedural approach. Besides that, the programs function the same. 
-
 * 0.1
     * Initial Release
 
