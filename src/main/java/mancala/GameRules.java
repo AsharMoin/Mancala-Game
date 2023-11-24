@@ -70,6 +70,10 @@ public abstract class GameRules implements Serializable{
     public void setPlayer(final int playerNum) {
         currentPlayer = playerNum;
     }
+    /**
+     * get the current player in an int representation
+     * @return current player
+     */
     public int getPlayer(){
         return currentPlayer;
     }
@@ -133,18 +137,38 @@ public abstract class GameRules implements Serializable{
         gameBoard.emptyStores();        
     }
 
+    /***
+     * set the repeat variable
+     * @param set 1 or -1 to set
+     */
     public void setRepeat(final int set) {
         this.repeatTurn = set;
     }
 
+    /***
+     * if the players turn should repeat
+     * @return repeatTurn - if the turn should repeat, 1 for yes -1 for no
+     */
     public int getRepeat() {
         return repeatTurn;
     }
 
+    /***
+     * Check if the capture is valid
+     * @param pit - the pit in question
+     * @param player - the player whose turn it is
+     * @return
+     */
     public boolean isValidCapture(final int pit, final int player) {
         return (player == 1 && pit >= FIRST_PIT && pit <= 6) || (player == 2 && pit >= 7 && pit <= 12);
     }
     
+    /***
+     * validate the players move/pit choice
+     * @param startPit - the starting pit
+     * @param playerNum - the player
+     * @throws InvalidMoveException - if invalid choice
+     */
     public void validateMove(final int startPit, final int playerNum) throws InvalidMoveException {
         if (startPit < FIRST_PIT || startPit > LAST_PIT) {
             throw new InvalidMoveException();
@@ -157,6 +181,10 @@ public abstract class GameRules implements Serializable{
         }
     }
 
+    /***
+     * set the game mode
+     * @param ruleSet - the ruleset for the game
+     */
     public void setMode(final GameRules ruleSet) {
         if (ruleSet.getClass() == KalahRules.class) {
             this.mode = 2;
@@ -164,13 +192,18 @@ public abstract class GameRules implements Serializable{
             this.mode = 1;
         }
     }
+
+    /***
+     * getter for the game mode
+     * @return mode - the mode
+     */
     public int gameMode() {
         return mode;
     }
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
+        final StringBuilder builder = new StringBuilder();
         
         builder.append("Current Player: ").append(currentPlayer).append("\n");
         builder.append("Repeat Turn: ").append(repeatTurn).append("\n");

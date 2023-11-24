@@ -29,7 +29,7 @@ public class KalahRules extends GameRules implements Serializable {
         final int distribute = numStones;
         board.setIterator(startPit, getPlayer(), false); 
         Countable currentSpot;
-        System.out.println(startPit);
+
         while(numStones > 0) {
             currentSpot = board.next(); // Get the next spot
             currentSpot.addStone(); // Add a stone to the current spot
@@ -37,25 +37,15 @@ public class KalahRules extends GameRules implements Serializable {
 
             final boolean isLast = numStones == 0;
             final boolean isLastEmpty = isLast && currentSpot.getStoneCount() == 1;
-
+            
             if (isLast && ((getPlayer() == 1 && currentPit == STORE_ONE) || 
-                            (getPlayer() == 2 && currentPit == STORE_TWO))) {
+                            (getPlayer() == 2 && currentPit == 12))) {
                 setRepeat(1); // Player gets another turn
             }
             currentPit = (currentPit + 1) % STORE_TWO;
-            // currentPit = (currentPit + 1) % 14; // Update the current pit for the next iteration
-
-            System.out.println("CurrentPit: " + currentPit);
-            // System.out.println("Num stones: " + numStones);
-            // System.out.println("cS:"+currentSpot.getStoneCount());
-            System.out.println(currentSpot.getStoneCount());
-            System.out.println(isLast);
 
             if (isLastEmpty && isValidCapture(currentPit, getPlayer())) {
-                System.out.println("inside if");
-                System.out.println(currentPit);
                 captureStones(currentPit); // Adjust to the pit where the last stone landed
-                continue;
             }
         }
         return distribute;
@@ -63,16 +53,12 @@ public class KalahRules extends GameRules implements Serializable {
 
     @Override
     public int captureStones(final int stoppingPoint) {
-        System.out.println("Stopping point: " + stoppingPoint);
+
         final int oppositePit = STORE_TWO - stoppingPoint;
         final int stonesInOpposite = board.removeStones(oppositePit);
         final int stonesInStop = board.removeStones(stoppingPoint);
         final int total = stonesInOpposite + stonesInStop;
         board.addToStore(getPlayer(), total);
-        System.out.println("stones in opposite: " + stonesInOpposite);
-        System.out.println("opposite pit: " + oppositePit);
-        System.out.println("add to store: " + stonesInOpposite);
-
         return total;
     }
 }

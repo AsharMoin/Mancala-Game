@@ -15,6 +15,11 @@ public class MancalaGame implements Serializable{
     private Player currentPlayer;
     private GameRules ruleSet;
 
+    /***
+     * Set the playes and register them
+     * @param onePlayer player 1
+     * @param twoPlayer player 2
+     */
     public void setPlayers(final Player onePlayer, final Player twoPlayer) {
         this.playerOne = onePlayer;
         this.playerTwo = twoPlayer;
@@ -22,42 +27,81 @@ public class MancalaGame implements Serializable{
         this.currentPlayer = playerOne;
     }
 
+    /**
+     * get the players List
+     * @return player List
+     */
     public List<Player> getPlayers() { 
         return new ArrayList<>(Arrays.asList(playerOne, playerTwo)); 
     }
 
+    /***
+     * get the current player
+     * @return currentPlayer
+     */
     public Player getCurrentPlayer() { 
         return this.currentPlayer; 
     }
 
+    /***
+     * set the current player 
+     * @param player - player to be set to
+     */
     public void setCurrentPlayer(final Player player) {
         final int repeatTurn = ruleSet.getRepeat();
-        System.out.println("repeat: "+ repeatTurn);
         if (repeatTurn == -1) {this.currentPlayer = player;}
         ruleSet.setRepeat(-1);        
     }
 
+    /***
+     * Register the board
+     * @param rules
+     */
     public void setBoard(final GameRules rules) {
         this.ruleSet = rules;
     }
 
+    /***
+     * get the board
+     * @return board
+     */
     public GameRules getBoard() { 
         return this.ruleSet;
     }
 
+    /***
+     * get the number of stones
+     * @param pitNum pit number to get stones from
+     * @return stones
+     */
     public int getNumStones(final int pitNum){ 
         return ruleSet.getNumStones(pitNum); 
     }
 
+    /***
+     * Move method that calls the perticular moveStones method
+     * @param startPit - the starting pit
+     * @return return the result of the function call
+     * @throws InvalidMoveException - if an invalid choice
+     */
     public int move(final int startPit) throws InvalidMoveException{ 
         return ruleSet.moveStones(startPit, this.currentPlayer.getPlayerNum()); 
     }
 
+    /**
+     * get the stones in the player store
+     * @param player - player whose store is vbeing checked
+     * @return stone count
+     */
     public int getStoreCount(final Player player) { 
-        System.out.println("playerstore: " + player.getStoreCount());
         return player.getStoreCount(); 
     }
 
+    /***
+     * check if the game is over and who the winner is
+     * @return player who won
+     * @throws GameNotOverException - if the game isnt over
+     */
     public Player getWinner() throws GameNotOverException {
         final int playerOneStones = playerOne.getStoreCount();
         final int playerTwoStones = playerTwo.getStoreCount();
@@ -75,6 +119,10 @@ public class MancalaGame implements Serializable{
         return winner;
     }
 
+    /**
+     * is the game over
+     * @return return true or false
+     */
     public boolean isGameOver() {
         boolean isEmpty = false;
         if (ruleSet.isSideEmpty(1) || ruleSet.isSideEmpty(7)) {
@@ -83,6 +131,9 @@ public class MancalaGame implements Serializable{
         return isEmpty;
     }
 
+    /***
+     * start a new game
+     */
     public void startNewGame() { 
         ruleSet.resetBoard(); 
     }

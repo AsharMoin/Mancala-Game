@@ -51,21 +51,14 @@ public class GUI {
     public GUI() {
         game = new MancalaGame();
         showAyoOrKal();
-        initializeGame();
-        
-        System.out.println(playerOne.getUserProfile().getKalahGames());
-        System.out.println(playerTwo.getUserProfile().getKalahLosses());
-        System.out.println(gameMode);
-        
+        initializeGame();        
         initializeFrame();
-
         frame.add(setupBoardPanel(), BorderLayout.CENTER);
         frame.add(setupMenuPanel(), BorderLayout.EAST);
         finalizeFrameSettings();
     }
 
     private void initializeGame() {
-        // game.startNewGame();
         playerOne = new Player("Player 1");
         playerTwo = new Player("Player 2");
         store1 = new JLabel("Store 1: 0");
@@ -143,8 +136,7 @@ public class GUI {
         }
     }
 
-    public void gamesPlayed(UserProfile user) {
-        System.out.println("In games Played");
+    private void gamesPlayed(UserProfile user) {
         if (gameMode == 1) {
             user.setAyoGames();
         } else {
@@ -152,8 +144,7 @@ public class GUI {
         }
     }
 
-    public void gamesWon(UserProfile user) {
-        System.out.println("In games won");
+    private void gamesWon(UserProfile user) {
         if (gameMode == 1) {
             user.setAyoWins();
         } else {
@@ -161,8 +152,7 @@ public class GUI {
         }
     }
 
-    public void gamesLost(UserProfile user) {
-        System.out.println("In games lost");
+    private void gamesLost(UserProfile user) {
         if (gameMode == 1) {
             user.setAyoLosses();
         } else {
@@ -238,7 +228,7 @@ public class GUI {
             }
     }
 
-    public static void popUp(JFrame frame, String message) {
+    private static void popUp(JFrame frame, String message) {
         final JDialog dialog = new JDialog(frame, message, true);
         dialog.add(new JLabel(message, JLabel.CENTER));
         dialog.setSize(300, 200);
@@ -310,10 +300,8 @@ public class GUI {
             if (filename.length() == 0) filename = "Untitled Game";
 
             try {
-                System.out.println(game);
                 save.saveObject(game, "assets/" + filename + ".ser");
             } catch (IOException error) {
-                System.out.println(game);
                 popUp(frame, "Failed To Save Game");
             }
         });
@@ -345,7 +333,7 @@ public class GUI {
         frame.setVisible(true);
     }
 
-    public void handleFileChooser() {
+    private void handleFileChooser() {
         JFileChooser fileChooser = new JFileChooser("assets");
 
         int result = fileChooser.showOpenDialog(null);
@@ -374,7 +362,7 @@ public class GUI {
         }
     }
 
-    public void handlePitChoice(ActionEvent e, int tall, int wide) {
+    private void handlePitChoice(ActionEvent e, int tall, int wide) {
         PositionAwareButton clickedButton = (PositionAwareButton) e.getSource();
         int posX = clickedButton.getAcross(); // Assuming getAcross() returns the X position
         int posY = clickedButton.getDown();   // Assuming getDown() returns the Y position

@@ -14,7 +14,6 @@ public class Saver {
             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(toSave);
         } catch (IOException i) {
-            i.printStackTrace();
             throw new IOException("Error saving object to file", i);
         }
     }
@@ -24,7 +23,6 @@ public class Saver {
             ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
             return (Serializable) objectIn.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            // Handle exceptions, e.g., if the file doesn't exist or cannot be deserialized
             throw new IOException("Could Not Load File", e);
         }
     }

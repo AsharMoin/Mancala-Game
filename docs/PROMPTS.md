@@ -1,1 +1,0 @@
-1. Hello, I am going to ask you to generate a full working program that must compile in the language Java. Please make me a game of Mancala that follows the standard Kalah rules excluding the player getting another turn if their last stone lands in their store. Remember, this MUST compile when ran with a JDK.

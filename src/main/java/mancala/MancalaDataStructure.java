@@ -142,6 +142,9 @@ public class MancalaDataStructure implements Serializable{
         data.set(storePos(2), new Store());
     }
 
+    /***
+     * Empty the pits
+     */
     public void emptyPits() {
         for (int i = 1; i < 13; i++) {
             removeStones(i);
@@ -222,10 +225,13 @@ public class MancalaDataStructure implements Serializable{
         iteratorPos++;
         loopIterator(); // in case we've run off the end
         skipPosition(); // skip store and start position if necessary
-        System.out.println("Iterator: " + iteratorPos);
         return data.get(iteratorPos);
     }
 
+    /**
+     * get the iterator
+     * @return iterators position
+     */
     public int getIterator() {
         return iteratorPos;
     }
