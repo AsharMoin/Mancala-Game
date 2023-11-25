@@ -1,5 +1,6 @@
 package mancala;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,8 +11,21 @@ import java.io.Serializable;
 public class Saver {
 
     public void saveObject(final Serializable toSave, final String filename) throws IOException {
-        try (FileOutputStream fileOut = new FileOutputStream(filename);
-            ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+        // Extract the directory path from the filename
+        File file = new File(filename);
+        File directory = file.getParentFile();
+
+        // Create the directory if it does not exist
+        if (!directory.exists()) {
+            if (directory.mkdirs()) {
+                System.out.println("Directory created: " + directory.getAbsolutePath());
+            } else {
+                throw new IOException("Failed to create directory: " + directory.getAbsolutePath());
+            }
+        }
+
+        try (FileOutputStream fileOut = new FileOutputStream(file);
+             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(toSave);
         } catch (IOException i) {
             throw new IOException("Error saving object to file", i);
