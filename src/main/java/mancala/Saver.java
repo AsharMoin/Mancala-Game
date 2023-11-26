@@ -18,7 +18,6 @@ public class Saver {
         // Create the directory if it does not exist
         if (!directory.exists()) {
             if (directory.mkdirs()) {
-                System.out.println("Directory created: " + directory.getAbsolutePath());
             } else {
                 throw new IOException("Failed to create directory: " + directory.getAbsolutePath());
             }

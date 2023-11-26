@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.io.File;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -336,17 +337,20 @@ public class GUI {
     private void handleFileChooser() {
         JFileChooser fileChooser = new JFileChooser("assets");
 
+        File assetsFolder = new File(System.getProperty("user.dir"), "assets");
+        fileChooser.setCurrentDirectory(assetsFolder);
+
         int result = fileChooser.showOpenDialog(null);
 
         if (result == JFileChooser.APPROVE_OPTION) {
             String absolutePath = fileChooser.getSelectedFile().getAbsolutePath();
-            String projectDirectory = "C:\\Users\\ashar\\Learning Java\\GP3";
             Path absolutePathObject = Paths.get(absolutePath);
-            Path projectDirectoryObject = Paths.get(projectDirectory);
-            // Calculate the relative path
-            Path relativePath = projectDirectoryObject.relativize(absolutePathObject);
+
+            // Calculate the relative path to the "assets" folder
+            Path relativePath = assetsFolder.toPath().relativize(absolutePathObject);
+
             // Convert the Path back to a String
-            String selectedFile = relativePath.toString().replace("\\", "/");
+            String selectedFile = "assets/" + relativePath.toString().replace(File.separator, "/");
 
             try {
                 game = (MancalaGame) save.loadObject(selectedFile);
