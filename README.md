@@ -1,9 +1,8 @@
 # 🎮 Mancala 🎮
 Simulate a game of Mancala using traditional Kalah rules, this time with a GUI!!
 
-## *This Online Game of Mancala uses Object Oriented Programming to maintain readability within the code as well as improve maintainability. This is a fun game for 2 players to go head to head in!*
+<p align="center"><em>Simulate a game of Mancala using traditional Kalah rules, this time with a GUI!!</em></p>
 
-## 🚀 Getting Started
 ### 📋 Dependencies
 Must have a JavaJDK installed to compile program. 
 That said, if users want to build the project from scratch, modify the code, or run tests using Gradle tasks, they will need Gradle installed.
