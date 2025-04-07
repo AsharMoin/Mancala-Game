@@ -32,31 +32,9 @@ gradle echo - will give executable script
 java -cp build/classes/java/main ui.GUI
 ```
 Expected output:
-```
-Prompt To Select Game Mode -> MUST SELECT OPTION, CLOSING WILL END APPLICATION
---------------------
 
-Prompt To Login Or Register -> Press X To Play Without A User Profile
+![Mancala Demo Video](./MancalaDemo.gif)
 
---------------------
-
-Play Game As Normal! Press Pits To Make Move, It's Simple!
-
---------------------
-
-Save Game Button -> Save The Game At Any Point, Enter A Filename And Save
-
---------------------
-
-Exit Game Button -> Exit The Current Game, Bringing You To A Fresh Menu And Board
-
---------------------
-
-Choose File Button -> Select A Game File To Load And Play. If A User File Is Selected Will Continue Current Game
-
---------------------
-
-```
 ## Limitations
 
 No limitations or features excluded from program.
