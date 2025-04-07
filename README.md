@@ -31,7 +31,7 @@ gradle build
 gradle echo - will give executable script
 java -cp build/classes/java/main ui.GUI
 ```
-Expected output:
+Demo:
 
 ![Mancala Demo Video](./MancalaDemo.gif)
 
