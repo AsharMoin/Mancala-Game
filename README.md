@@ -1,5 +1,4 @@
 # 🎮 Mancala 🎮
-Simulate a game of Mancala using traditional Kalah rules, this time with a GUI!!
 
 <p align="center"><em>Simulate a game of Mancala using traditional Kalah rules, this time with a GUI!!</em></p>
 
